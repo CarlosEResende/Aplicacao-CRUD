@@ -7,9 +7,7 @@ const profileModel_1 = require("../models/profileModel");
 class DepositRepository {
     async createDeposit(data) {
         try {
-            // Cria o depósito
             const deposit = await depositModel_1.Deposit.create(data);
-            // Atualiza o balance do profile associado ao depósito
             await profileModel_1.Profile.update({ balance: sequelize_1.Sequelize.literal(`balance + ${data.depositValue}`) }, { where: { id: data.profileId } });
             return deposit;
         }
@@ -35,17 +33,15 @@ class DepositRepository {
     }
     async updateDeposit(id, data) {
         try {
-            const deposit = await this.findById(id); // Busca o depósito atual
+            const deposit = await this.findById(id);
             if (!deposit) {
                 throw new Error("Deposit not found");
             }
-            const previousDepositValue = deposit.depositValue; // Valor anterior do depósito
-            const valueDifference = data.depositValue - previousDepositValue; // Calcula a diferença
+            const previousDepositValue = deposit.depositValue;
+            const valueDifference = data.depositValue - previousDepositValue;
             if (valueDifference !== 0) {
-                // Atualiza o balance apenas se houver diferença
                 await profileModel_1.Profile.update({ balance: sequelize_1.Sequelize.literal(`balance + ${valueDifference}`) }, { where: { id: deposit.profileId } });
             }
-            // Atualiza o depósito com os novos valores
             return await deposit.update(data);
         }
         catch (error) {
@@ -56,7 +52,6 @@ class DepositRepository {
         try {
             const deposit = await this.findById(id);
             if (deposit) {
-                // Atualiza o balance do profile removendo o valor do depósito
                 await profileModel_1.Profile.update({ balance: sequelize_1.Sequelize.literal(`balance - ${deposit.depositValue}`) }, { where: { id: deposit.profileId } });
                 await deposit.destroy();
                 return true;

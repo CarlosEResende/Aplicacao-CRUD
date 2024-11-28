@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const profileRoute_1 = __importDefault(require("./routes/profileRoute"));
 const depositRoute_1 = __importDefault(require("./routes/depositRoute"));
+const contractRoute_1 = __importDefault(require("./routes/contractRoute"));
 const connection_1 = __importDefault(require("./shared/connection"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
@@ -15,6 +16,7 @@ app.get("/", (req, res) => {
 });
 app.use("/api/profiles", profileRoute_1.default);
 app.use("/api/deposits", depositRoute_1.default);
+app.use("/contracts", contractRoute_1.default);
 if (process.env.NODE_ENV !== 'test') {
     (async () => {
         try {

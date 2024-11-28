@@ -1,5 +1,4 @@
 "use strict";
-// depositController.ts
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DepositController = void 0;
 const depositService_1 = require("../services/depositService");

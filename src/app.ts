@@ -1,6 +1,7 @@
 import express from "express";
 import profileRoutes from "./routes/profileRoute"; 
 import depositRoutes from "./routes/depositRoute"; 
+import contractRoutes from "./routes/contractRoute";
 import sequelize from "./shared/connection"; 
 
 
@@ -14,6 +15,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/profiles", profileRoutes); 
 app.use("/api/deposits", depositRoutes); 
+app.use("/contracts", contractRoutes); 
 
 
 if (process.env.NODE_ENV !== 'test') {
