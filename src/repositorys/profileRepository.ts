@@ -38,6 +38,8 @@ export class ProfileRepository {
         }
     }
 
+
+
     public async deleteProfile(id: number): Promise<boolean> {
         try {
             const profile = await this.findById(id);

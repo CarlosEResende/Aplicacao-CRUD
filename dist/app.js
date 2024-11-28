@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const profileRoute_1 = __importDefault(require("./routes/profileRoute"));
+const depositRoute_1 = __importDefault(require("./routes/depositRoute"));
 const connection_1 = __importDefault(require("./shared/connection"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
@@ -13,6 +14,7 @@ app.get("/", (req, res) => {
     res.status(200).send("Unifio Node.js API - now using ts");
 });
 app.use("/api/profiles", profileRoute_1.default);
+app.use("/api/deposits", depositRoute_1.default);
 if (process.env.NODE_ENV !== 'test') {
     (async () => {
         try {

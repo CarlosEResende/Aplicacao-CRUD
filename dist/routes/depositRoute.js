@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const depositController_1 = require("../controllers/depositController");
+const router = (0, express_1.Router)();
+const depositController = new depositController_1.DepositController();
+router.post("/", (req, res) => depositController.createDeposit(req, res));
+router.get("/", (req, res) => depositController.getDeposits(req, res));
+router.get("/:id", (req, res) => depositController.getDepositById(req, res));
+router.put("/:id", (req, res) => depositController.updateDeposit(req, res));
+router.delete("/:id", (req, res) => depositController.deleteDeposit(req, res));
+exports.default = router;

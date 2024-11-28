@@ -14,7 +14,7 @@ export class ProfileController {
             return res.status(201).json(profile);
         } catch (error) {
             console.error(error);
-            return res.status(500).json({ message: "Failed to create profile"});
+            return res.status(500).json({ message: "Failed to create profile" });
         }
     }
 
@@ -24,7 +24,7 @@ export class ProfileController {
             return res.status(200).json(profiles);
         } catch (error) {
             console.error(error);
-            return res.status(500).json({ message: "Failed to fetch profiles"});
+            return res.status(500).json({ message: "Failed to fetch profiles" });
         }
     }
 
@@ -38,7 +38,7 @@ export class ProfileController {
                 return res.status(404).json({ message: "Profile not found" });
             }
         } catch (error) {
-            return res.status(500).json({ message: "Failed to fetch profile"});
+            return res.status(500).json({ message: "Failed to fetch profile" });
         }
     }
 
@@ -69,7 +69,7 @@ export class ProfileController {
                 return res.status(404).json({ message: "Profile not found" });
             }
         } catch (error) {
-            return res.status(500).json({ message: "Failed to delete profile"});
+            return res.status(500).json({ message: "Failed to delete profile" });
         }
     }
 }
