@@ -8,12 +8,7 @@ export class ContractService {
         this.contractRepository = new ContractRepository();
     }
 
-    public async createContract(
-        profileId: number, 
-        terms: string, 
-        operationDate: Date, 
-        status: string
-    ): Promise<Contract> {
+    public async createContract( profileId: number, terms: string, operationDate: Date, status: string): Promise<Contract> {
         try {
             const contract = await this.contractRepository.createContract({ profileId, terms, operationDate, status });
             return contract;
@@ -51,7 +46,7 @@ export class ContractService {
     }
 
     public async updateContract(
-        id: number, 
+        id: number,
         data: Partial<ContractCreationAttributes>
     ): Promise<Contract | null> {
         try {

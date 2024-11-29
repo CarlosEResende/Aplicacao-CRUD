@@ -1,0 +1,20 @@
+Listar Todos
+
+GET http://localhost:3000/api/contracts/
+
+
+POST
+
+http://localhost:3000/api/contracts
+
+
+Get Todos
+
+http://localhost:3000/api/contracts/5
+
+Get por Perfil
+
+http://localhost:3000/api/contracts/profile/2
+
+
+DELETE http://localhost:3000/api/contracts/5

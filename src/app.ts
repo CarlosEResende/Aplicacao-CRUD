@@ -1,7 +1,9 @@
 import express from "express";
 import profileRoutes from "./routes/profileRoute"; 
 import depositRoutes from "./routes/depositRoute"; 
+import jobRoutes from "./routes/jobRoute"; 
 import contractRoutes from "./routes/contractRoute";
+import paymentRoutes from './routes/paymentRoute';
 import sequelize from "./shared/connection"; 
 
 
@@ -15,7 +17,10 @@ app.get("/", (req, res) => {
 
 app.use("/api/profiles", profileRoutes); 
 app.use("/api/deposits", depositRoutes); 
-app.use("/contracts", contractRoutes); 
+app.use("/api/contracts", contractRoutes);
+app.use("/api/jobs", jobRoutes);
+app.use('/api/payment', paymentRoutes);
+
 
 
 if (process.env.NODE_ENV !== 'test') {

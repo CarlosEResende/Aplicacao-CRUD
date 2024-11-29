@@ -6,7 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const profileRoute_1 = __importDefault(require("./routes/profileRoute"));
 const depositRoute_1 = __importDefault(require("./routes/depositRoute"));
+const jobRoute_1 = __importDefault(require("./routes/jobRoute"));
 const contractRoute_1 = __importDefault(require("./routes/contractRoute"));
+const paymentRoute_1 = __importDefault(require("./routes/paymentRoute"));
 const connection_1 = __importDefault(require("./shared/connection"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
@@ -16,7 +18,9 @@ app.get("/", (req, res) => {
 });
 app.use("/api/profiles", profileRoute_1.default);
 app.use("/api/deposits", depositRoute_1.default);
-app.use("/contracts", contractRoute_1.default);
+app.use("/api/contracts", contractRoute_1.default); // Rota principal de contratos
+app.use("/api/jobs", jobRoute_1.default);
+app.use('/api/payment', paymentRoute_1.default);
 if (process.env.NODE_ENV !== 'test') {
     (async () => {
         try {

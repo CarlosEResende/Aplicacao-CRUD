@@ -1,0 +1,15 @@
+
+
+POST http://localhost:3000/api/deposits/
+
+
+GET http://localhost:3000/api/deposits/
+
+
+GET http://localhost:3000/api/deposits/:id
+
+
+PUT http://localhost:3000/api/deposits/:id
+
+
+DELETE http://localhost:3000/api/deposits/:id

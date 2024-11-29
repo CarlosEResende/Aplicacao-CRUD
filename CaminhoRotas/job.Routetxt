@@ -1,0 +1,14 @@
+GET http://localhost:3000/api/jobs/contract/1
+
+
+
+PUT http://localhost:3000/api/jobs/:id
+
+
+POST http://localhost:3000/api/jobs/
+
+
+DELETE http://localhost:3000/api/jobs/:id
+
+
+GET http://localhost:3000/api/jobs/unpaid/:contractId
