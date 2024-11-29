@@ -39,9 +39,9 @@ class JobService {
             throw new Error(`Unable to delete job: ${error.message}`);
         }
     }
-    async listarJobsNaoPagosPorContrato(contractId) {
+    async listUnpaidJobsByContract(contractId) {
         try {
-            return await this.jobRepository.listarJobsNaoPagosPorContrato(contractId);
+            return await this.jobRepository.listUnpaidJobsByContract(contractId);
         }
         catch (error) {
             console.error('Erro ao listar Jobs não pagos no serviço:', error);

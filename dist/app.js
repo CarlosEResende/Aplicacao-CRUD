@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 });
 app.use("/api/profiles", profileRoute_1.default);
 app.use("/api/deposits", depositRoute_1.default);
-app.use("/api/contracts", contractRoute_1.default); // Rota principal de contratos
+app.use("/api/contracts", contractRoute_1.default);
 app.use("/api/jobs", jobRoute_1.default);
 app.use('/api/payment', paymentRoute_1.default);
 if (process.env.NODE_ENV !== 'test') {

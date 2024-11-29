@@ -37,9 +37,9 @@ export class JobService {
         }
     }
 
-    public async listarJobsNaoPagosPorContrato(contractId: number): Promise<Job[]> {
+    public async listUnpaidJobsByContract(contractId: number): Promise<Job[]> {
         try {
-            return await this.jobRepository.listarJobsNaoPagosPorContrato(contractId);
+            return await this.jobRepository.listUnpaidJobsByContract(contractId);
         } catch (error) {
             console.error('Erro ao listar Jobs não pagos no serviço:', error);
             throw error;

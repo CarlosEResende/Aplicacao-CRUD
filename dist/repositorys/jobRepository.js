@@ -43,7 +43,7 @@ class JobRepository {
             throw new Error(`Unable to delete job: ${error.message}`);
         }
     }
-    async listarJobsNaoPagosPorContrato(contractId) {
+    async listUnpaidJobsByContract(contractId) {
         try {
             return await jobModel_1.Job.findAll({
                 where: {

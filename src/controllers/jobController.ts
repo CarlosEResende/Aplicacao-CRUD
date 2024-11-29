@@ -49,7 +49,7 @@ export class JobController {
         }
     }
 
-    public async listarJobsNaoPagosPorContrato(req: Request, res: Response): Promise<void> {
+    public async listUnpaidJobsByContract(req: Request, res: Response): Promise<void> {
         const contractId = parseInt(req.params.contractId);
 
         if (isNaN(contractId)) {
@@ -58,7 +58,7 @@ export class JobController {
         }
 
         try {
-            const jobsNaoPagos = await this.jobService.listarJobsNaoPagosPorContrato(contractId);
+            const jobsNaoPagos = await this.jobService.listUnpaidJobsByContract(contractId);
             res.status(200).json(jobsNaoPagos);
         } catch (error) {
             console.error('Erro ao listar Jobs não pagos no controlador:', error);

@@ -42,7 +42,7 @@ export class JobRepository {
         }
     }
 
-   public async listarJobsNaoPagosPorContrato(contractId: number): Promise<Job[]> {
+   public async listUnpaidJobsByContract(contractId: number): Promise<Job[]> {
     try {
         return await Job.findAll({
             where: {

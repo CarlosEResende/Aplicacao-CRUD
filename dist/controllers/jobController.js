@@ -51,14 +51,14 @@ class JobController {
             return res.status(500).json({ message: "Failed to delete job" });
         }
     }
-    async listarJobsNaoPagosPorContrato(req, res) {
+    async listUnpaidJobsByContract(req, res) {
         const contractId = parseInt(req.params.contractId);
         if (isNaN(contractId)) {
             res.status(400).json({ message: 'O ID do contrato deve ser um número válido.' });
             return;
         }
         try {
-            const jobsNaoPagos = await this.jobService.listarJobsNaoPagosPorContrato(contractId);
+            const jobsNaoPagos = await this.jobService.listUnpaidJobsByContract(contractId);
             res.status(200).json(jobsNaoPagos);
         }
         catch (error) {
